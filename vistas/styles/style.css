@@ -1,0 +1,61 @@
+/*https://colorhunt.co/palette/780c28cae0bceafaea6e8e59*/
+body{
+    background-color: #EAFAEA;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+form{
+    width: 30%;
+    background-color: #6E8E59;
+    padding: 20px;
+    border-radius: 10px;
+}
+.btn{
+    background-color: #CAE0BC;
+}
+.btn:hover{
+    background-color: #EAFAEA;
+}
+form .btn{
+display: flex;
+margin: auto;
+}
+/*.nav_btn{
+    padding: 10px 20px;
+    background-color: #6E8E59;
+    text-decoration: none;
+    color: white;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content:flex-start;
+    margin: 0;
+    
+}
+nav > * {
+    flex: 1;
+    text-align: center;
+}
+.nav_btn:hover{
+    background-color: #617c4e;
+    text-align: center;
+}*/
+.navbar{
+        background-color: #6E8E59;
+}
+
+.navbar-nav .nav-link.active{
+    color: white;
+}
+.navbar-nav .nav-link:hover{
+    color: black;
+}
+.nav_btn{
+    color: white;
+}
