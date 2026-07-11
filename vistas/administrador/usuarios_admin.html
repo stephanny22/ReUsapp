@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Administrar Usuarios</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+<div class="container-fluid">
+
+<a class="navbar-brand nav_btn" href="paneladmin.html">ReUsApp</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+<ul class="navbar-nav me-auto">
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="paneladmin.html">Dashboard</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active nav_btn" href="usuarios_admin.html">Usuarios</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="productos-admin.html">Productos</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="categorias-admin.html">Categorías</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="intercambios-admin.html">Intercambios</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="mensajes-admin.html">Mensajes</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="resenas-admin.html">Reseñas</a>
+</li>
+
+<li class="nav-item dropdown">
+
+<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
+Administrador
+</a>
+
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="#">Mi perfil</a></li>
+<li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+</ul>
+
+</li>
+
+</ul>
+
+<form class="d-flex">
+
+<input class="form-control me-2" type="search" id="buscarUsuario" placeholder="Buscar usuario">
+
+<button class="btn btn-outline-success" type="button" onclick="buscarUsuario()">
+Buscar
+</button>
+
+</form>
+
+</div>
+
+</div>
+</nav>
+
+<div class="container mt-4">
+
+<h2>Gestión de Usuarios</h2>
+
+<div class="mb-3">
+<button class="btn" onclick="nuevoUsuario()">
+Nuevo Usuario
+</button>
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-striped table-hover table-bordered align-middle">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Documento</th>
+<th>Nombre</th>
+<th>Correo</th>
+<th>Teléfono</th>
+<th>Estado</th>
+<th>Acciones</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tablaUsuarios">
+
+<tr>
+
+<td>102030</td>
+<td>Juan Pérez</td>
+<td>juan@gmail.com</td>
+<td>3204567890</td>
+<td>Activo</td>
+
+<td>
+
+<button class="btn btn-warning btn-sm" onclick="editarUsuario('Juan Pérez')">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm" onclick="eliminarUsuario('Juan Pérez')">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>204050</td>
+<td>María López</td>
+<td>maria@gmail.com</td>
+<td>3109876543</td>
+<td>Activo</td>
+
+<td>
+
+<button class="btn btn-warning btn-sm" onclick="editarUsuario('María López')">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm" onclick="eliminarUsuario('María López')">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>305060</td>
+<td>Carlos Díaz</td>
+<td>carlos@gmail.com</td>
+<td>3154567890</td>
+<td>Inactivo</td>
+
+<td>
+
+<button class="btn btn-warning btn-sm" onclick="editarUsuario('Carlos Díaz')">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm" onclick="eliminarUsuario('Carlos Díaz')">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function buscarUsuario(){
+
+var texto=document.getElementById("buscarUsuario").value;
+
+alert("Buscar usuario: "+texto);
+
+}
+
+function editarUsuario(nombre){
+
+alert("Editar usuario: "+nombre);
+
+}
+
+function eliminarUsuario(nombre){
+
+var respuesta=confirm("¿Desea eliminar el usuario "+nombre+"?");
+
+if(respuesta){
+
+alert("Usuario eliminado");
+
+}
+
+}
+
+function nuevoUsuario(){
+
+alert("Abrir formulario para registrar un nuevo usuario");
+
+}
+
+</script>
+
+</body>
+</html>

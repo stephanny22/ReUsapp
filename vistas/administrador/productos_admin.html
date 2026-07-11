@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../styles/style.css">
+<title>Administrar Productos</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+<div class="container-fluid">
+
+<a class="navbar-brand nav_btn" href="paneladmin.html">ReUsApp</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+<ul class="navbar-nav me-auto">
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="paneladmin.html">Dashboard</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="usuarios_admin.html">Usuarios</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active nav_btn" href="productos_admin.html">Productos</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="categorias-admin.html">Categorías</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="intercambios-admin.html">Intercambios</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="mensajes-admin.html">Mensajes</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link nav_btn" href="resenas-admin.html">Reseñas</a>
+</li>
+
+<li class="nav-item dropdown">
+
+<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
+Administrador
+</a>
+
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="inicio.html">Mi perfil</a></li>
+<li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+</ul>
+
+</li>
+
+</ul>
+
+<form class="d-flex">
+
+<input class="form-control me-2" type="search" id="buscarProducto" placeholder="Buscar producto">
+
+<button class="btn btn-outline-success" type="button" onclick="buscarProducto()">
+Buscar
+</button>
+
+</form>
+
+</div>
+
+</div>
+</nav>
+
+<div class="container mt-4">
+
+<h2>Gestión de Productos</h2>
+
+<div class="mb-3">
+<button class="btn" onclick="nuevoProducto()">
+Nuevo Producto
+</button>
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-striped table-hover table-bordered align-middle">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Imagen</th>
+<th>Producto</th>
+<th>Categoría</th>
+<th>Usuario</th>
+<th>Estado</th>
+<th>Acciones</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>📷</td>
+<td>Laptop Dell</td>
+<td>Tecnología</td>
+<td>Juan Pérez</td>
+<td>Publicado</td>
+
+<td>
+
+<button class="btn btn-info btn-sm" onclick="verProducto('Laptop Dell')">
+Ver
+</button>
+
+<button class="btn btn-warning btn-sm" onclick="editarProducto('Laptop Dell')">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm" onclick="eliminarProducto('Laptop Dell')">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>📷</td>
+<td>Celular Samsung</td>
+<td>Tecnología</td>
+<td>María López</td>
+<td>Pendiente</td>
+
+<td>
+
+<button class="btn btn-info btn-sm" onclick="verProducto('Celular Samsung')">
+Ver
+</button>
+
+<button class="btn btn-warning btn-sm" onclick="editarProducto('Celular Samsung')">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm" onclick="eliminarProducto('Celular Samsung')">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>📷</td>
+<td>Microondas</td>
+<td>Electrodomésticos</td>
+<td>Carlos Díaz</td>
+<td>Publicado</td>
+
+<td>
+
+<button class="btn btn-info btn-sm" onclick="verProducto('Microondas')">
+Ver
+</button>
+
+<button class="btn btn-warning btn-sm" onclick="editarProducto('Microondas')">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm" onclick="eliminarProducto('Microondas')">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>📷</td>
+<td>Bicicleta</td>
+<td>Deportes</td>
+<td>Ana Torres</td>
+<td>Publicado</td>
+
+<td>
+
+<button class="btn btn-info btn-sm" onclick="verProducto('Bicicleta')">
+Ver
+</button>
+
+<button class="btn btn-warning btn-sm" onclick="editarProducto('Bicicleta')">
+Editar
+</button>
+
+<button class="btn btn-danger btn-sm" onclick="eliminarProducto('Bicicleta')">
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function buscarProducto(){
+
+var texto=document.getElementById("buscarProducto").value;
+
+alert("Buscar producto: "+texto);
+
+}
+
+function verProducto(nombre){
+
+alert("Ver información del producto: "+nombre);
+
+}
+
+function editarProducto(nombre){
+
+alert("Editar producto: "+nombre);
+
+}
+
+function eliminarProducto(nombre){
+
+var respuesta=confirm("¿Desea eliminar el producto "+nombre+"?");
+
+if(respuesta){
+
+alert("Producto eliminado");
+
+}
+
+}
+
+function nuevoProducto(){
+
+alert("Abrir formulario para registrar un nuevo producto");
+
+}
+
+</script>
+
+</body>
+
+</html>
