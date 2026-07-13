@@ -1,112 +1,136 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="../styles/style.css">
-<title>Mensajes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Mensajes</title>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg">
-<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
 
-<a class="navbar-brand nav_btn" href="dashboard-admin.html">ReUsApp</a>
+        <div class="container-fluid">
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <a class="navbar-brand nav_btn" href="paneladmin.html">
+                ReUsApp
+            </a>
 
-<div class="collapse navbar-collapse" id="menu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<ul class="navbar-nav me-auto">
+            <div class="collapse navbar-collapse" id="menu">
 
-<li class="nav-item"><a class="nav-link nav_btn" href="dashboard-admin.html">Dashboard</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="usuarios-admin.html">Usuarios</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="productos-admin.html">Productos</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="categorias-admin.html">Categorías</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="intercambios-admin.html">Intercambios</a></li>
-<li class="nav-item"><a class="nav-link active nav_btn" href="#">Mensajes</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="resenas-admin.html">Reseñas</a></li>
+                <ul class="navbar-nav me-auto">
 
-</ul>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="paneladmin.html">Dashboard</a>
+                    </li>
 
-</div>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="usuariosadmin.html">Usuarios</a>
+                    </li>
 
-</div>
-</nav>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="productos_admin.html">Productos</a>
+                    </li>
 
-<div class="container mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="categorias_admin.html">Categorías</a>
+                    </li>
 
-<h2>Mensajes</h2>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="intercambios_admin.html">Intercambios</a>
+                    </li>
 
-<table class="table table-striped table-bordered mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link active nav_btn" href="mensajes_admin.html">Mensajes</a>
+                    </li>
 
-<thead class="table-dark">
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="resenas_admin.html">Reseñas</a>
+                    </li>
 
-<tr>
-<th>Remitente</th>
-<th>Destinatario</th>
-<th>Fecha</th>
-<th>Acción</th>
-</tr>
+                </ul>
 
-</thead>
+            </div>
 
-<tbody>
+        </div>
 
-<tr>
+    </nav>
 
-<td>Juan</td>
+    <div class="container mt-4">
 
-<td>Pedro</td>
+        <h2>Mensajes</h2>
 
-<td>20/07/2026</td>
+        <table class="table table-striped table-bordered mt-3">
 
-<td>
+            <thead class="table-dark">
 
-<button class="btn btn-primary btn-sm" onclick="verConversacion()">Ver conversación</button>
+                <tr>
+                    <th>Remitente</th>
+                    <th>Destinatario</th>
+                    <th>Fecha</th>
+                    <th>Acción</th>
+                </tr>
 
-</td>
+            </thead>
 
-</tr>
+            <tbody>
 
-<tr>
+                <tr>
 
-<td>Ana</td>
+                    <td>Juan</td>
+                    <td>Pedro</td>
+                    <td>20/07/2026</td>
 
-<td>Laura</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" onclick="verConversacion()">
+                            Ver conversación
+                        </button>
+                    </td>
 
-<td>22/07/2026</td>
+                </tr>
 
-<td>
+                <tr>
 
-<button class="btn btn-primary btn-sm" onclick="verConversacion()">Ver conversación</button>
+                    <td>Ana</td>
+                    <td>Laura</td>
+                    <td>22/07/2026</td>
 
-</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" onclick="verConversacion()">
+                            Ver conversación
+                        </button>
+                    </td>
 
-</tr>
+                </tr>
 
-</tbody>
+            </tbody>
 
-</table>
+        </table>
 
-</div>
+    </div>
 
-<script>
+    <script>
 
-function verConversacion(){
+        function verConversacion() {
 
-alert(
-"Mensaje 1: Hola.\n\nMensaje 2: ¿Aceptas el intercambio?\n\nMensaje 3: Sí, claro."
-);
+            alert(
+                "Mensaje 1: Hola.\n\n" +
+                "Mensaje 2: ¿Aceptas el intercambio?\n\n" +
+                "Mensaje 3: Sí, claro."
+            );
 
-}
+        }
 
-</script>
+    </script>
 
 </body>
+
 </html>

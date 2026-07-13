@@ -1,157 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="../styles/style.css">
-<title>Panel Administrador</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Panel Administrador</title>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg">
-<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
 
-<a class="navbar-brand nav_btn" href="#">ReUsApp</a>
+        <div class="container-fluid">
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <a class="navbar-brand nav_btn" href="#">ReUsApp</a>
 
-<div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<ul class="navbar-nav me-auto">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-<li class="nav-item">
-<a class="nav-link active nav_btn" href="#">Panel</a>
-</li>
+                <ul class="navbar-nav me-auto">
 
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">Usuarios</a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="usuarios.html">Ver usuarios</a></li>
-<li><a class="dropdown-item" href="tiposUsuario.html">Tipos de usuario</a></li>
-</ul>
-</li>
+                    <li class="nav-item">
+                        <a class="nav-link active nav_btn" href="#">Panel</a>
+                    </li>
 
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="productos.html">Administrar productos</a></li>
-<li><a class="dropdown-item" href="publicaciones.html">Publicaciones</a></li>
-</ul>
-</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
+                            Usuarios
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="usuarios_admin.html">Ver usuarios</a></li>
+                            <li><a class="dropdown-item" href="tiposUsuario.html">Tipos de usuario</a></li>
+                        </ul>
+                    </li>
 
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">Intercambios</a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="intercambios.html">Solicitudes</a></li>
-<li><a class="dropdown-item" href="resenas.html">Reseñas</a></li>
-</ul>
-</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="productos_admin.html">Administrar productos</a></li>
+                            <li><a class="dropdown-item" href="publicaciones.html">Publicaciones</a></li>
+                        </ul>
+                    </li>
 
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">Catálogos</a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="categorias.html">Categorías</a></li>
-<li><a class="dropdown-item" href="subcategorias.html">Subcategorías</a></li>
-</ul>
-</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
+                            Intercambios
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="intercambios_admin.html">Solicitudes</a></li>
+                            <li><a class="dropdown-item" href="resenas_admin.html">Reseñas</a></li>
+                        </ul>
+                    </li>
 
-<li class="nav-item">
-<a class="nav-link nav_btn" href="reportes.html">Reportes</a>
-</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
+                            Catálogos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="categorias_admin.html">Categorías</a></li>
+                            <li><a class="dropdown-item" href="subcategoriasadmin.html">Subcategorías</a></li>
+                        </ul>
+                    </li>
 
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">Administrador</a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="perfilAdmin.html">Mi perfil</a></li>
-<li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
-</ul>
-</li>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="reportes.html">Reportes</a>
+                    </li>
 
-</ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
+                            Administrador
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="paneladmin.html">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+                        </ul>
+                    </li>
 
-<form class="d-flex">
-<input class="form-control me-2" type="search" placeholder="Buscar usuario o producto">
-<button class="btn btn-outline-success" type="submit">Buscar</button>
-</form>
+                </ul>
 
-</div>
-</div>
-</nav>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar usuario o producto">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
 
-<div class="container-lg">
+            </div>
 
-<h1>Panel de Administración</h1>
+        </div>
 
-<div class="row row-cols-1 row-cols-md-4 g-4">
+    </nav>
 
-<div class="col">
-<div class="card h-100 text-center">
-<div class="card-body">
-<h5 class="card-title">Usuarios</h5>
-<h2>145</h2>
-<a href="usuarios.html" class="btn">Administrar</a>
-</div>
-</div>
-</div>
+    <div class="container-lg">
 
-<div class="col">
-<div class="card h-100 text-center">
-<div class="card-body">
-<h5 class="card-title">Productos</h5>
-<h2>380</h2>
-<a href="productos.html" class="btn">Administrar</a>
-</div>
-</div>
-</div>
+        <h1>Panel de Administración</h1>
 
-<div class="col">
-<div class="card h-100 text-center">
-<div class="card-body">
-<h5 class="card-title">Intercambios</h5>
-<h2>94</h2>
-<a href="intercambios.html" class="btn">Administrar</a>
-</div>
-</div>
-</div>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
 
-<div class="col">
-<div class="card h-100 text-center">
-<div class="card-body">
-<h5 class="card-title">Reseñas</h5>
-<h2>218</h2>
-<a href="resenas.html" class="btn">Administrar</a>
-</div>
-</div>
-</div>
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Usuarios</h5>
+                        <h2>145</h2>
+                        <a href="usuarios-admin.html" class="btn">Administrar</a>
+                    </div>
+                </div>
+            </div>
 
-</div>
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Productos</h5>
+                        <h2>380</h2>
+                        <a href="productos-admin.html" class="btn">Administrar</a>
+                    </div>
+                </div>
+            </div>
 
-<br>
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Intercambios</h5>
+                        <h2>94</h2>
+                        <a href="intercambios-admin.html" class="btn">Administrar</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Reseñas</h5>
+                        <h2>218</h2>
+                        <a href="resenas-admin.html" class="btn">Administrar</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card-header">
-Accesos rápidos
-</div>
+        </div>
 
-<div class="card-body">
+        <br>
 
-<div class="d-grid gap-2">
-<a href="usuarios.html" class="btn">Gestionar Usuarios</a>
-<a href="productos.html" class="btn">Gestionar Productos</a>
-<a href="publicaciones.html" class="btn">Gestionar Publicaciones</a>
-<a href="intercambios.html" class="btn">Gestionar Intercambios</a>
-<a href="categorias.html" class="btn">Gestionar Categorías</a>
-<a href="subcategorias.html" class="btn">Gestionar Subcategorías</a>
-<a href="reportes.html" class="btn">Ver Reportes</a>
-</div>
-</div>
-</div>
-</div>
+        <div class="card">
+
+            <div class="card-header">
+                Accesos rápidos
+            </div>
+
+            <div class="card-body">
+
+                <div class="d-grid gap-2">
+
+                    <a href="usuarios-admin.html" class="btn">Gestionar Usuarios</a>
+
+                    <a href="productos-admin.html" class="btn">Gestionar Productos</a>
+
+                    <a href="publicaciones.html" class="btn">Gestionar Publicaciones</a>
+
+                    <a href="intercambios-admin.html" class="btn">Gestionar Intercambios</a>
+
+                    <a href="categorias-admin.html" class="btn">Gestionar Categorías</a>
+
+                    <a href="subcategorias-admin.html" class="btn">Gestionar Subcategorías</a>
+
+                    <a href="reportes.html" class="btn">Ver Reportes</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
+
 </html>

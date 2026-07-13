@@ -1,118 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="../styles/style.css">
-<title>Intercambios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Intercambios</title>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg">
-<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
 
-<a class="navbar-brand nav_btn" href="dashboard-admin.html">ReUsApp</a>
+        <div class="container-fluid">
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <a class="navbar-brand nav_btn" href="paneladmin.html">
+                ReUsApp
+            </a>
 
-<div class="collapse navbar-collapse" id="menu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<ul class="navbar-nav me-auto">
+            <div class="collapse navbar-collapse" id="menu">
 
-<li class="nav-item"><a class="nav-link nav_btn" href="dashboard-admin.html">Dashboard</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="usuarios-admin.html">Usuarios</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="productos-admin.html">Productos</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="categorias-admin.html">Categorías</a></li>
-<li class="nav-item"><a class="nav-link active nav_btn" href="#">Intercambios</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="mensajes-admin.html">Mensajes</a></li>
-<li class="nav-item"><a class="nav-link nav_btn" href="resenas-admin.html">Reseñas</a></li>
+                <ul class="navbar-nav me-auto">
 
-</ul>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="paneladmin.html">Dashboard</a>
+                    </li>
 
-</div>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="usuarios_admin.html">Usuarios</a>
+                    </li>
 
-</div>
-</nav>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="productos_admin.html">Productos</a>
+                    </li>
 
-<div class="container mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="categorias_admin.html">Categorías</a>
+                    </li>
 
-<h2>Administración de Intercambios</h2>
+                    <li class="nav-item">
+                        <a class="nav-link active nav_btn" href="intercambios_admin.html">Intercambios</a>
+                    </li>
 
-<div class="table-responsive mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="mensajes_admin.html">Mensajes</a>
+                    </li>
 
-<table class="table table-bordered table-hover">
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="resenas_admin.html">Reseñas</a>
+                    </li>
 
-<thead class="table-dark">
-<tr>
-<th>Usuario 1</th>
-<th>Producto</th>
-<th>Usuario 2</th>
-<th>Producto</th>
-<th>Estado</th>
-<th>Acciones</th>
-</tr>
-</thead>
+                </ul>
 
-<tbody>
+            </div>
 
-<tr>
-<td>Juan</td>
-<td>Laptop</td>
-<td>Pedro</td>
-<td>Celular</td>
-<td>Aceptado</td>
+        </div>
 
-<td>
+    </nav>
 
-<button class="btn btn-success btn-sm" onclick="verIntercambio()">Ver</button>
+    <div class="container mt-4">
 
-<button class="btn btn-danger btn-sm" onclick="cancelarIntercambio()">Cancelar</button>
+        <h2>Administración de Intercambios</h2>
 
-</td>
+        <div class="table-responsive mt-3">
 
-</tr>
+            <table class="table table-bordered table-hover">
 
-<tr>
-<td>Ana</td>
-<td>Bicicleta</td>
-<td>Laura</td>
-<td>Patines</td>
-<td>Pendiente</td>
+                <thead class="table-dark">
 
-<td>
+                    <tr>
+                        <th>Usuario 1</th>
+                        <th>Producto</th>
+                        <th>Usuario 2</th>
+                        <th>Producto</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
 
-<button class="btn btn-success btn-sm" onclick="verIntercambio()">Ver</button>
+                </thead>
 
-<button class="btn btn-danger btn-sm" onclick="cancelarIntercambio()">Cancelar</button>
+                <tbody>
 
-</td>
+                    <tr>
+                        <td>Juan</td>
+                        <td>Laptop</td>
+                        <td>Pedro</td>
+                        <td>Celular</td>
+                        <td>Aceptado</td>
+                        <td>
+                            <button class="btn btn-success btn-sm" onclick="verIntercambio()">
+                                Ver
+                            </button>
 
-</tr>
+                            <button class="btn btn-danger btn-sm" onclick="cancelarIntercambio()">
+                                Cancelar
+                            </button>
+                        </td>
+                    </tr>
 
-</tbody>
+                    <tr>
+                        <td>Ana</td>
+                        <td>Bicicleta</td>
+                        <td>Laura</td>
+                        <td>Patines</td>
+                        <td>Pendiente</td>
+                        <td>
+                            <button class="btn btn-success btn-sm" onclick="verIntercambio()">
+                                Ver
+                            </button>
 
-</table>
+                            <button class="btn btn-danger btn-sm" onclick="cancelarIntercambio()">
+                                Cancelar
+                            </button>
+                        </td>
+                    </tr>
 
-</div>
+                </tbody>
 
-</div>
+            </table>
 
-<script>
+        </div>
 
-function verIntercambio(){
-alert("Ver información del intercambio.");
-}
+    </div>
 
-function cancelarIntercambio(){
-alert("Intercambio cancelado.");
-}
+    <script>
 
-</script>
+        function verIntercambio() {
+
+            alert("Ver información del intercambio.");
+
+        }
+
+        function cancelarIntercambio() {
+
+            alert("Intercambio cancelado.");
+
+        }
+
+    </script>
 
 </body>
+
 </html>

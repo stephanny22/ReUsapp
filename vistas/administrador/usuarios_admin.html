@@ -15,217 +15,214 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg">
-<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
 
-<a class="navbar-brand nav_btn" href="paneladmin.html">ReUsApp</a>
+        <div class="container-fluid">
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <a class="navbar-brand nav_btn" href="paneladmin.html">ReUsApp</a>
 
-<div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<ul class="navbar-nav me-auto">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-<li class="nav-item">
-<a class="nav-link nav_btn" href="paneladmin.html">Dashboard</a>
-</li>
+                <ul class="navbar-nav me-auto">
 
-<li class="nav-item">
-<a class="nav-link active nav_btn" href="usuarios_admin.html">Usuarios</a>
-</li>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="paneladmin.html">Dashboard</a>
+                    </li>
 
-<li class="nav-item">
-<a class="nav-link nav_btn" href="productos-admin.html">Productos</a>
-</li>
+                    <li class="nav-item">
+                        <a class="nav-link active nav_btn" href="usuarios_admin.html">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="productos-admin.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="categorias-admin.html">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="intercambios-admin.html">Intercambios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="mensajes-admin.html">Mensajes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav_btn" href="resenas-admin.html">Reseñas</a>
+                    </li>
+                    <li class="nav-item dropdown">
 
-<li class="nav-item">
-<a class="nav-link nav_btn" href="categorias-admin.html">Categorías</a>
-</li>
+                        <a class="nav-link dropdown-toggle nav_btn" href="#" role="button"
+                            data-bs-toggle="dropdown">
+                            Administrador
+                        </a>
 
-<li class="nav-item">
-<a class="nav-link nav_btn" href="intercambios-admin.html">Intercambios</a>
-</li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="inicio.html">Cerrar sesión</a></li>
+                        </ul>
 
-<li class="nav-item">
-<a class="nav-link nav_btn" href="mensajes-admin.html">Mensajes</a>
-</li>
+                    </li>
 
-<li class="nav-item">
-<a class="nav-link nav_btn" href="resenas-admin.html">Reseñas</a>
-</li>
+                </ul>
 
-<li class="nav-item dropdown">
+                <form class="d-flex">
 
-<a class="nav-link dropdown-toggle nav_btn" href="#" role="button" data-bs-toggle="dropdown">
-Administrador
-</a>
+                    <input class="form-control me-2" type="search"
+                        id="buscarUsuario" placeholder="Buscar usuario">
+
+                    <button class="btn btn-outline-success"
+                        type="button"
+                        onclick="buscarUsuario()">
+                        Buscar
+                    </button>
 
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="#">Mi perfil</a></li>
-<li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
-</ul>
+                </form>
+
+            </div>
 
-</li>
+        </div>
 
-</ul>
+    </nav>
 
-<form class="d-flex">
+    <div class="container mt-4">
 
-<input class="form-control me-2" type="search" id="buscarUsuario" placeholder="Buscar usuario">
+        <h2>Gestión de Usuarios</h2>
 
-<button class="btn btn-outline-success" type="button" onclick="buscarUsuario()">
-Buscar
-</button>
+        <div class="mb-3">
 
-</form>
+            <button class="btn" onclick="nuevoUsuario()">
+                Nuevo Usuario
+            </button>
 
-</div>
+        </div>
 
-</div>
-</nav>
+        <div class="table-responsive">
 
-<div class="container mt-4">
+            <table class="table table-striped table-hover table-bordered align-middle">
 
-<h2>Gestión de Usuarios</h2>
+                <thead class="table-dark">
 
-<div class="mb-3">
-<button class="btn" onclick="nuevoUsuario()">
-Nuevo Usuario
-</button>
-</div>
+                    <tr>
+                        <th>Documento</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
 
-<div class="table-responsive">
+                </thead>
 
-<table class="table table-striped table-hover table-bordered align-middle">
+                <tbody id="tablaUsuarios">
 
-<thead class="table-dark">
+                    <tr>
+                        <td>102030</td>
+                        <td>Juan Pérez</td>
+                        <td>juan@gmail.com</td>
+                        <td>3204567890</td>
+                        <td>Activo</td>
+                        <td>
 
-<tr>
+                            <button class="btn btn-warning btn-sm"
+                                onclick="editarUsuario('Juan Pérez')">
+                                Editar
+                            </button>
 
-<th>Documento</th>
-<th>Nombre</th>
-<th>Correo</th>
-<th>Teléfono</th>
-<th>Estado</th>
-<th>Acciones</th>
+                            <button class="btn btn-danger btn-sm"
+                                onclick="eliminarUsuario('Juan Pérez')">
+                                Eliminar
+                            </button>
 
-</tr>
+                        </td>
+                    </tr>
 
-</thead>
+                    <tr>
+                        <td>204050</td>
+                        <td>María López</td>
+                        <td>maria@gmail.com</td>
+                        <td>3109876543</td>
+                        <td>Activo</td>
+                        <td>
 
-<tbody id="tablaUsuarios">
+                            <button class="btn btn-warning btn-sm"
+                                onclick="editarUsuario('María López')">
+                                Editar
+                            </button>
 
-<tr>
+                            <button class="btn btn-danger btn-sm"
+                                onclick="eliminarUsuario('María López')">
+                                Eliminar
+                            </button>
 
-<td>102030</td>
-<td>Juan Pérez</td>
-<td>juan@gmail.com</td>
-<td>3204567890</td>
-<td>Activo</td>
+                        </td>
+                    </tr>
 
-<td>
+                    <tr>
+                        <td>305060</td>
+                        <td>Carlos Díaz</td>
+                        <td>carlos@gmail.com</td>
+                        <td>3154567890</td>
+                        <td>Inactivo</td>
+                        <td>
 
-<button class="btn btn-warning btn-sm" onclick="editarUsuario('Juan Pérez')">
-Editar
-</button>
+                            <button class="btn btn-warning btn-sm"
+                                onclick="editarUsuario('Carlos Díaz')">
+                                Editar
+                            </button>
 
-<button class="btn btn-danger btn-sm" onclick="eliminarUsuario('Juan Pérez')">
-Eliminar
-</button>
+                            <button class="btn btn-danger btn-sm"
+                                onclick="eliminarUsuario('Carlos Díaz')">
+                                Eliminar
+                            </button>
 
-</td>
+                        </td>
+                    </tr>
 
-</tr>
+                </tbody>
 
-<tr>
+            </table>
 
-<td>204050</td>
-<td>María López</td>
-<td>maria@gmail.com</td>
-<td>3109876543</td>
-<td>Activo</td>
+        </div>
 
-<td>
+    </div>
 
-<button class="btn btn-warning btn-sm" onclick="editarUsuario('María López')">
-Editar
-</button>
+    <script>
 
-<button class="btn btn-danger btn-sm" onclick="eliminarUsuario('María López')">
-Eliminar
-</button>
+        function buscarUsuario() {
 
-</td>
+            var texto = document.getElementById("buscarUsuario").value;
 
-</tr>
+            alert("Buscar usuario: " + texto);
 
-<tr>
+        }
 
-<td>305060</td>
-<td>Carlos Díaz</td>
-<td>carlos@gmail.com</td>
-<td>3154567890</td>
-<td>Inactivo</td>
+        function editarUsuario(nombre) {
 
-<td>
+            alert("Editar usuario: " + nombre);
 
-<button class="btn btn-warning btn-sm" onclick="editarUsuario('Carlos Díaz')">
-Editar
-</button>
+        }
 
-<button class="btn btn-danger btn-sm" onclick="eliminarUsuario('Carlos Díaz')">
-Eliminar
-</button>
+        function eliminarUsuario(nombre) {
 
-</td>
+            var respuesta = confirm("¿Desea eliminar el usuario " + nombre + "?");
 
-</tr>
+            if (respuesta) {
+                alert("Usuario eliminado");
+            }
 
-</tbody>
+        }
 
-</table>
+        function nuevoUsuario() {
 
-</div>
+            alert("Abrir formulario para registrar un nuevo usuario");
 
-</div>
+        }
 
-<script>
-
-function buscarUsuario(){
-
-var texto=document.getElementById("buscarUsuario").value;
-
-alert("Buscar usuario: "+texto);
-
-}
-
-function editarUsuario(nombre){
-
-alert("Editar usuario: "+nombre);
-
-}
-
-function eliminarUsuario(nombre){
-
-var respuesta=confirm("¿Desea eliminar el usuario "+nombre+"?");
-
-if(respuesta){
-
-alert("Usuario eliminado");
-
-}
-
-}
-
-function nuevoUsuario(){
-
-alert("Abrir formulario para registrar un nuevo usuario");
-
-}
-
-</script>
+    </script>
 
 </body>
+
 </html>
