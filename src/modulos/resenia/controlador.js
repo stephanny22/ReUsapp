@@ -1,6 +1,6 @@
 const db = require('../../DB/mysql');
 
-const TABLA = 'usuario';
+const TABLA = 'resenia';
 
 module.exports =  function (dbinyectada){
 
