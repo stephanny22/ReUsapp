@@ -19,9 +19,7 @@
 
         <h1>Administrador</h1>
 
-        <p class="text-center">
-            Inicie sesión para acceder al panel administrativo
-        </p>
+        <p class="text-center">Inicie sesión para acceder al panel administrativo</p>
 
         <form id="loginAdmin">
 
@@ -43,13 +41,10 @@
 
         <br>
 
-        <p class="text-center">
-            <a href="index.html">Volver al inicio de sesión de usuarios</a>
-        </p>
+            <a href="../index.html">Volver al inicio de sesión</a>
+        </div>
 
-    </div>
-
-    <script>
+        <script>
 
         document.getElementById("loginAdmin").addEventListener("submit", function (event) {
 
@@ -58,7 +53,6 @@
             var correo = document.getElementById("correo").value;
             var clave = document.getElementById("clave").value;
 
-           
             if (correo == "admin@reusapp.com" && clave == "admin123") {
 
                 alert("Bienvenido Administrador");
