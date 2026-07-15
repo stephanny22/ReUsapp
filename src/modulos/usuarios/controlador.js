@@ -18,6 +18,15 @@ module.exports = function (dbInyectada) {
         return dbLocal.uno(TABLA, id);
     }
 
+    function usuarios() {
+    return dbLocal.usuarios();
+}
+
+function totalUsuarios() {
+    return dbLocal.totalUsuarios();
+}
+
+
     async function agregar(body) {
 
         const usuario = {
@@ -49,7 +58,8 @@ console.log("Método agregar =", dbLocal?.agregar);
         todos,
         uno,
         agregar,
-        eliminar
+        eliminar,
+        usuarios,     
+        totalUsuarios
     };
-
 };

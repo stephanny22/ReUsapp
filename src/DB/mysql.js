@@ -190,12 +190,204 @@ function publicaciones() {
         });
     });
 }
+function totalUsuarios() {
+    return new Promise((resolve, reject) => {
 
+        conexion.query(
+            "SELECT COUNT(*) AS total FROM Usuario",
+            (error, result) => {
+
+                if (error) {
+                    return reject(error);
+                }
+
+                resolve(result[0]);
+
+            }
+        );
+
+    });
+}
+
+function totalProductos() {
+
+    return new Promise((resolve, reject) => {
+
+        conexion.query(
+            "SELECT COUNT(*) AS total FROM Producto",
+            (error, result) => {
+
+                if (error) {
+                    return reject(error);
+                }
+
+                resolve(result[0]);
+
+            }
+        );
+
+    });
+}
+
+    function totalIntercambios() {
+
+    return new Promise((resolve, reject) => {
+
+        conexion.query(
+            "SELECT COUNT(*) AS total FROM Intercambio",
+            (error, result) => {
+
+                if (error) {
+                    return reject(error);
+                }
+
+                resolve(result[0]);
+
+            }
+        );
+
+    });
+
+}
+    
+    function totalResenas() {
+
+    return new Promise((resolve, reject) => {
+
+        conexion.query(
+            "SELECT COUNT(*) AS total FROM Resena",
+            (error, result) => {
+
+                if (error) {
+                    return reject(error);
+                }
+
+                resolve(result[0]);
+
+            }
+        );
+
+    });
+
+}
+function usuarios() {
+
+    return new Promise((resolve, reject) => {
+
+        const sql = `
+        SELECT
+
+            id,
+            tipo_doc,
+            num_doc,
+            nombres,
+            apellidos,
+            email,
+            telefono,
+            direccion,
+            fecha_nacimiento,
+            genero
+
+        FROM Usuario
+
+        ORDER BY nombres;
+        `;
+
+        conexion.query(sql, (error, result) => {
+
+            if(error) return reject(error);
+
+            resolve(result);
+
+        });
+
+    });
+
+}
+
+function intercambios() {
+
+    return new Promise((resolve, reject) => {
+
+        const sql = `
+        SELECT
+
+            i.id,
+            i.estado,
+            i.fecha_intercambio,
+
+            p.nombre AS producto
+
+        FROM Intercambio i
+
+        INNER JOIN Producto_Intercambio pi
+            ON pi.id_intercambio = i.id
+
+        INNER JOIN Producto p
+            ON p.id = pi.id_producto
+
+        ORDER BY i.fecha_intercambio DESC;
+        `;
+
+        conexion.query(sql, (error, result) => {
+
+            if (error) return reject(error);
+
+            resolve(result);
+
+        });
+
+    });
+
+}
+
+function productos() {
+
+    return new Promise((resolve, reject) => {
+
+        const sql = `
+        SELECT
+            p.id,
+            p.nombre,
+            p.precio,
+            p.estado,
+            u.nombres,
+            u.apellidos
+        FROM Producto p
+        INNER JOIN Usuario u
+        ON p.id_propietario=u.id
+        ORDER BY p.id DESC;
+        `;
+
+        conexion.query(sql, (error, result) => {
+
+            if (error) {
+                return reject(error);
+            }
+
+            resolve(result);
+
+        });
+
+    });
+
+}
 module.exports = {
+
     todos,
     uno,
     agregar,
     eliminar,
     publicaciones,
-    query
-};
+    query,
+
+    totalUsuarios,
+    totalProductos,
+    totalIntercambios,
+    totalResenas,
+
+    usuarios,
+    productos,
+    intercambios
+
+}

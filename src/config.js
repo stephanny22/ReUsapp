@@ -1,4 +1,11 @@
-require ('dotenv').config();
+require('dotenv').config({
+    path: './.env'
+});
+console.log("PORT:", process.env.PORT);
+console.log("MYSQL_HOST:", process.env.MYSQL_HOST);
+console.log("MYSQL_USER:", process.env.MYSQL_USER);
+console.log("MYSQL_PASSWORD:", process.env.MYSQL_PASSWORD);
+console.log("MYSQL_DB:", process.env.MYSQL_DB);
 
 //Variables globales
 module.exports = {
