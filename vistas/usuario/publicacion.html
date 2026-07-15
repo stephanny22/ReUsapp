@@ -12,26 +12,55 @@
   <link rel="stylesheet" href="../styles/style.css">
   <title>Publicación</title>
 </head>
+
 <body>
-    <div class="container-md">
-        <a class="volver_btn btn" href="inicio.html">Volver</a>
+  <div class="container-md">
+    <a class="volver_btn btn" href="inicio.html">Volver</a>
 
     <div class=" publicacion_container">
-    <div class="card" style="width: 30rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Producto</h5>
-    <p class="card-text"> <b>Descripción:</b> Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      <div class="card" style="width: 30rem;">
+        <img id="imagenProducto" class="card-img-top" alt="Imagen del producto">
+        <div class="card-body">
+          <h5 id="tituloProducto" class="card-title"></h5>
+          <p class="card-text">
+            <b>Descripción:</b>
+            <span id="descripcionProducto"></span>
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">
+            <b>Precio aproximado:</b>
+            $<span id="precioProducto"></span>
+          </li>
+
+
+          <li class="list-group-item">
+            <b>Estado:</b>
+            <span id="estadoProducto"></span>
+          </li>
+
+
+          <li class="list-group-item">
+            <b>Dueño:</b>
+            <a id="duenoProducto"></a>
+          </li>
+
+          <li class="list-group-item">
+            <b>Categoría:</b>
+            <span id="categoriaProducto"></span>
+          </li>
+
+          <li class="list-group-item">
+            <b>Subcategoría:</b>
+            <span id="subcategoriaProducto"></span>
+          </li>
+        </ul>
+        <div class="card-body">
+          <a href="solicitud.html" class="btn">enviar solicitud</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><b>Precio aproximado:</b> $455665</li>
-    <li class="list-group-item"><b>Estado:</b> Usado</li>
-    <li class="list-group-item"><b>Dueño:</b> <a href="perfil_producto.html">nombre persona</a></li>
-  </ul>
-  <div class="card-body">
-    <a href="solicitud.html" class="btn">enviar solicitud</a>
-  </div>
-  </div>
-  </div>
-</div>
+  <script src="js/publicacion.js"></script>
 </body>

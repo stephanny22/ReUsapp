@@ -6,6 +6,7 @@ const controlador = require('./index')
 const router = express.Router();
 router.get('/', todos);
 router.get('/publicas', publicaciones);
+router.get('/detalle/:id', detalle);
 router.get('/:id', uno);
 router.post('/', agregar);
 router.put('/', eliminar);
@@ -67,4 +68,14 @@ async function eliminar(req,res){
         
     } 
 };
+
+async function detalle(req,res){
+    try{
+        const item = await controlador.publicacion(req.params.id);
+        respuesta.success(req,res,item,200);
+    }catch(error){
+        respuesta.error(req,res,error,500);
+    }
+};
+
 module.exports = router;
