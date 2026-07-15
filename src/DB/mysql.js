@@ -133,6 +133,24 @@ function eliminar(tabla, data) {
 
 }
 
+function contar(tabla) {
+
+    return new Promise((resolve, reject) => {
+
+        conexion.query(`SELECT COUNT(*) AS total FROM ${tabla}`, (error, result) => {
+
+            if (error) {
+                return reject(error);
+            }
+
+            resolve(result);
+
+        });
+
+    });
+
+}
+
 function query(tabla, consulta) {
 
     return new Promise((resolve, reject) => {
@@ -196,86 +214,7 @@ function publicaciones() {
         });
     });
 }
-function totalUsuarios() {
-    return new Promise((resolve, reject) => {
 
-        conexion.query(
-            "SELECT COUNT(*) AS total FROM Usuario",
-            (error, result) => {
-
-                if (error) {
-                    return reject(error);
-                }
-
-                resolve(result[0]);
-
-            }
-        );
-
-    });
-}
-
-function totalProductos() {
-
-    return new Promise((resolve, reject) => {
-
-        conexion.query(
-            "SELECT COUNT(*) AS total FROM Producto",
-            (error, result) => {
-
-                if (error) {
-                    return reject(error);
-                }
-
-                resolve(result[0]);
-
-            }
-        );
-
-    });
-}
-
-    function totalIntercambios() {
-
-    return new Promise((resolve, reject) => {
-
-        conexion.query(
-            "SELECT COUNT(*) AS total FROM Intercambio",
-            (error, result) => {
-
-                if (error) {
-                    return reject(error);
-                }
-
-                resolve(result[0]);
-
-            }
-        );
-
-    });
-
-}
-    
-    function totalResenas() {
-
-    return new Promise((resolve, reject) => {
-
-        conexion.query(
-            "SELECT COUNT(*) AS total FROM Resena",
-            (error, result) => {
-
-                if (error) {
-                    return reject(error);
-                }
-
-                resolve(result[0]);
-
-            }
-        );
-
-    });
-
-}
 function usuarios(){
 
     return new Promise((resolve,reject)=>{
@@ -398,10 +337,7 @@ module.exports = {
     publicaciones,
     query,
 
-    totalUsuarios,
-    totalProductos,
-    totalIntercambios,
-    totalResenas,
+    contar,
 
     usuarios,
     productos,

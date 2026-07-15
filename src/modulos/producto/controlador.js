@@ -22,8 +22,8 @@ module.exports = function (dbInyectada) {
         return dbLocal.productos();
     }
 
-    function totalProductos() {
-        return dbLocal.totalProductos();
+    function contar() {
+        return dbLocal.contar(TABLA);
     }
 
     function agregar(body) {
@@ -40,7 +40,7 @@ module.exports = function (dbInyectada) {
         agregar,
         eliminar,
         productos,
-        totalProductos
+        contar
     };
 
 };

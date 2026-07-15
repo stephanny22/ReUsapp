@@ -7,6 +7,7 @@ const router = express.Router();
 router.get('/', todos);
 router.get('/:id', uno);
 router.post('/', agregar);
+router.get('/contar', contar);
 
 router.put('/', eliminar)
 
@@ -56,4 +57,20 @@ async function eliminar(req,res){
         
     } 
 };
+async function contar(req, res) {
+
+    try {
+
+        const items = await controlador.contar();
+
+
+        respuesta.success(req, res, items, 200);
+
+    } catch (error) {
+
+        respuesta.error(req, res, error, 500);
+
+    }
+
+}
 module.exports = router;

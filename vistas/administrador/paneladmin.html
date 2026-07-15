@@ -175,37 +175,33 @@
 
     </div>
     <script>
+        // Función para actualizar los contadores
+        async function actualizarContadores() {
+            try {
+                const responseUsuarios = await fetch('/api/usuarios/contar');
+                const dataUsuarios = await responseUsuarios.json();
+                document.getElementById('usuarios').textContent = dataUsuarios.count;
 
-document.addEventListener("DOMContentLoaded", function () {
+                const responseProductos = await fetch('/api/productos/contar');
+                const dataProductos = await responseProductos.json();
+                document.getElementById('productos').textContent = dataProductos.count;
 
-    cargarDashboard();
+                const responseIntercambios = await fetch('/api/intercambios/contar');
+                const dataIntercambios = await responseIntercambios.json();
+                document.getElementById('intercambios').textContent = dataIntercambios.count;
 
-});
+                const responseResenas = await fetch('/api/resenas/contar');
+                const dataResenas = await responseResenas.json();
+                document.getElementById('reseñas').textContent = dataResenas.count;
+            } catch (error) {
+                console.error('Error al actualizar los contadores:', error);
+            }
+        }
 
-function cargarDashboard() {
+        // Llamar a la función para actualizar los contadores al cargar la página
+        window.addEventListener('DOMContentLoaded', actualizarContadores);
+    </script>
 
-    fetch("http://localhost:4000/api/usuarios/dashboard")
-    .then(res => res.json())
-    .then(data => {
-
-        document.getElementById("usuarios").innerHTML =
-            data.body.usuarios.total;
-
-        document.getElementById("productos").innerHTML =
-            data.body.productos.total;
-
-        document.getElementById("intercambios").innerHTML =
-            data.body.intercambios.total;
-
-        document.getElementById("resenas").innerHTML =
-            data.body.resenas.total;
-
-    })
-    .catch(error => console.log(error));
-
-}
-
-</script>
 
 </body>
 

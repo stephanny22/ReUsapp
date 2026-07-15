@@ -21,10 +21,16 @@ module.exports =  function (dbinyectada){
         return db.agregar(TABLA, body)
     }
 
+    function contar() {
+        return dbLocal.contar(TABLA);
+    }
+
+
     return{
     todos,
     uno,
     agregar,
-    eliminar
+    eliminar,
+    contar
     }
 }

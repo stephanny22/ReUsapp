@@ -1,30 +1,47 @@
 const db = require('../../DB/mysql');
 
-const TABLA = 'intercambio';
+const TABLA = 'Intercambio';
 
-module.exports =  function (dbinyectada){
+module.exports = function (dbInyectada) {
 
-    let db = dbinyectada;
-    if(!db){
-        db = require('../../DB/mysql');
-    }
-    function todos(){
-    return db.todos(TABLA)
-    }
-    function uno(id){
-        return db.uno(TABLA, id)
-    }
-    function eliminar(body){
-        return db.eliminar(TABLA, body)
-    }
-    function agregar(body){
-        return db.agregar(TABLA, body)
+    let dbLocal = dbInyectada;
+
+    if (!dbLocal) {
+        dbLocal = db;
     }
 
-    return{
-    todos,
-    uno,
-    agregar,
-    eliminar
+    function todos() {
+        return dbLocal.todos(TABLA);
     }
-}
+
+    function uno(id) {
+        return dbLocal.uno(TABLA, id);
+    }
+
+    function intercambios() {
+        return dbLocal.intercambios();
+    }
+
+    function agregar(body) {
+        return dbLocal.agregar(TABLA, body);
+    }
+
+    function eliminar(id) {
+        return dbLocal.eliminar(TABLA, id);
+    }
+
+    function contar() {
+        return dbLocal.contar(TABLA);
+    }
+
+
+    return {
+        todos,
+        uno,
+        agregar,
+        eliminar,
+        intercambios,
+        contar
+    };
+
+};

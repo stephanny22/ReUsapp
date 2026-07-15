@@ -57,8 +57,8 @@ module.exports = function (dbInyectada) {
         return dbLocal.eliminar(TABLA, id);
     }
 
-    function totalUsuarios() {
-        return dbLocal.totalUsuarios();
+    function contar() {
+        return dbLocal.contar(TABLA);
     }
 
     return {
@@ -67,7 +67,7 @@ module.exports = function (dbInyectada) {
         agregar,
         eliminar,
         usuarios,
-        totalUsuarios
+        contar
     };
 
 };

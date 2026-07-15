@@ -1,5 +1,5 @@
 require('dotenv').config({
-    path: './archivo.env'
+    path: './.env'
 });
 console.log("PORT:", process.env.PORT);
 console.log("MYSQL_HOST:", process.env.MYSQL_HOST);

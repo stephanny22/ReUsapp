@@ -11,8 +11,7 @@ router.get('/', todos);
 // Rutas especiales
 router.get('/paneladmin', paneladmin);
 router.get('/lista', listarUsuarios);
-router.get('/productos', listarProductos);
-router.get('/intercambios', listarIntercambios);
+router.get('/contar', contar);
 
 // Ruta con parámetro (SIEMPRE AL FINAL)
 router.get('/:id', uno);
@@ -96,6 +95,7 @@ async function eliminar(req, res) {
 
 }
 
+
 //====================
 // ADMINISTRADOR
 //====================
@@ -123,6 +123,22 @@ async function paneladmin(req, res) {
     }
 
 }
+async function contar(req, res) {
+
+    try {
+
+        const items = await controlador.contar();
+
+
+        respuesta.success(req, res, items, 200);
+
+    } catch (error) {
+
+        respuesta.error(req, res, error, 500);
+
+    }
+
+}
 
 async function listarUsuarios(req, res) {
 
@@ -140,36 +156,6 @@ async function listarUsuarios(req, res) {
 
 }
 
-async function listarProductos(req, res) {
 
-    try {
-
-        const items = await controlador.productos();
-
-        respuesta.success(req, res, items, 200);
-
-    } catch (error) {
-
-        respuesta.error(req, res, error, 500);
-
-    }
-
-}
-
-async function listarIntercambios(req, res) {
-
-    try {
-
-        const items = await controlador.intercambios();
-
-        respuesta.success(req, res, items, 200);
-
-    } catch (error) {
-
-        respuesta.error(req, res, error, 500);
-
-    }
-
-}
 
 module.exports = router;

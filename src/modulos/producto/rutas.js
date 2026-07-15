@@ -6,7 +6,7 @@ const controlador = require('./index')
 const router = express.Router();
 router.get('/', todos);
 router.get('/:id', uno);
-router.get('/productos', listarProductos);
+router.get('/contar', contar);
 router.post('/', agregar);
 
 router.put('/', eliminar)
@@ -57,19 +57,18 @@ async function eliminar(req,res){
         
     } 
 };
-async function listarProductos(req,res){
+async function contar(req, res) {
 
-    try{
+    try {
 
-        const items=await controlador.productos();
+        const items = await controlador.contar();
 
-        respuesta.success(req,res,items,200);
 
-    }
+        respuesta.success(req, res, items, 200);
 
-    catch(err){
+    } catch (error) {
 
-        respuesta.error(req,res,err,500);
+        respuesta.error(req, res, error, 500);
 
     }
 
