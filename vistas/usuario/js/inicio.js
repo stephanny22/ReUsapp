@@ -16,7 +16,7 @@ async function cargarPublicaciones() {
                 <div class="col">
                     <div class="card h-100">
 
-                        <img src="http://localhost:4000/imagenes/${publicacion.url_imagen}"
+                        <img src="../../img/${publicacion.url_imagen}"
                              class="card-img-top"
                              alt="${publicacion.producto}">
 

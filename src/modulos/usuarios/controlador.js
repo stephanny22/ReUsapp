@@ -1,7 +1,8 @@
 const db = require('../../DB/mysql');
 const auth = require('../autenticacion');
+const bcrypt = require('bcrypt');
 
-const TABLA = 'Usuario';
+const TABLA = 'usuario';
 
 module.exports = function (dbInyectada) {
 
@@ -23,12 +24,25 @@ module.exports = function (dbInyectada) {
         return dbLocal.usuarios();
     }
 
+    function totalUsuarios() {
+        return dbLocal.totalUsuarios();
+    }
+
     async function agregar(body) {
 
         const usuario = {
             id: body.id,
-            nombre: body.nombre,
-            activo: body.activo
+            tipo_doc: body.tipo_doc,
+            num_doc: body.num_doc,
+            nombres: body.nombres,
+            apellidos: body.apellidos,
+            email: body.email,
+            telefono: body.telefono,
+            direccion: body.direccion,
+            fecha_nacimiento: body.fecha_nacimiento,
+            genero: body.genero,
+            contrasenia: await bcrypt.hash(body.contrasenia, 10),
+            id_tipo_usuario: body.id_tipo_usuario || 2
         };
 
         const respuesta = await dbLocal.agregar(TABLA, usuario);
@@ -42,9 +56,11 @@ module.exports = function (dbInyectada) {
         if (body.usuario || body.password) {
 
             await auth.agregar({
+
                 id: insertId,
                 usuario: body.usuario,
                 password: body.password
+
             });
 
         }
@@ -53,8 +69,8 @@ module.exports = function (dbInyectada) {
 
     }
 
-    function eliminar(id) {
-        return dbLocal.eliminar(TABLA, id);
+    function eliminar(body) {
+        return dbLocal.eliminar(TABLA, body);
     }
 
     function contar() {
@@ -62,12 +78,15 @@ module.exports = function (dbInyectada) {
     }
 
     return {
+
         todos,
         uno,
         agregar,
         eliminar,
         usuarios,
+        totalUsuarios,
         contar
+
     };
 
 };

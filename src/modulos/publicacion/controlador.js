@@ -23,11 +23,15 @@ module.exports =  function (dbinyectada){
     function publicaciones(){
         return db.publicaciones();
     }
+    function publicacion(id){
+        return db.publicacion(id);
+    }
     return{
     todos,
     uno,
     agregar,
     eliminar,
-    publicaciones
+    publicaciones,
+    publicacion
     }
 }

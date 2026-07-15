@@ -6,6 +6,7 @@ const path = require('path');
 const usuarios = require('./modulos/usuarios/rutas');
 const autenticacion = require('./modulos/autenticacion/rutas');
 const categoria = require('./modulos/categoria/rutas');
+const chat = require('./modulos/chat/rutas');
 const imagen = require('./modulos/imagen/rutas');
 const intercambio = require('./modulos/intercambio/rutas');
 const mensaje = require('./modulos/mensaje/rutas');
@@ -15,6 +16,7 @@ const publicacion = require('./modulos/publicacion/rutas');
 const resenia = require('./modulos/resenia/rutas');
 const subcategoria = require('./modulos/subcategoria/rutas');
 const tipo_usuario = require('./modulos/tipo_usuario/rutas');
+const path = require('path');
 
 
 
@@ -40,6 +42,6 @@ app.use('/api/publicacion', publicacion);
 app.use('/api/resenia', resenia);
 app.use('/api/subcategoria', subcategoria);
 app.use('/api/tipo_usuario', tipo_usuario);
-
+app.use(express.static(path.join(__dirname, '../vistas')));
 
 module.exports = app;
