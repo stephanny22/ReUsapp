@@ -39,6 +39,8 @@ console.log("Este es el id:"+id);
 
         document.getElementById("imagenProducto").src =
             "../../img/" + publicacion.url_imagen;
+            document.getElementById("btnSolicitud").href =
+    `solicitud.html?id=${id}`;
 
     } catch (error) {
         console.error(error);

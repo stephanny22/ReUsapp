@@ -424,6 +424,49 @@ function productos() {
     });
 
 }
+
+function solicitud(data){
+
+    return new Promise((resolve, reject) => {
+
+        const intercambio = {
+            estado: "SOLICITADO",
+            fecha_intercambio: new Date(),
+            cantidad_solicitada: data.cantidad,
+            id_publicacion: data.idPublicacion,
+            id_solicitante: data.idUsuario
+        };
+
+        conexion.query(
+            "INSERT INTO Intercambio SET ?",
+            intercambio,
+            (error, resultado) => {
+
+                if(error) return reject(error);
+
+                const idIntercambio = resultado.insertId;
+
+                conexion.query(
+                    "INSERT INTO Producto_Intercambio SET ?",
+                    {
+                        id_producto: data.producto.id,
+                        id_intercambio: idIntercambio
+                    },
+                    (error2, resultado2) => {
+
+                        if(error2) return reject(error2);
+
+                        resolve(resultado2);
+                    }
+                );
+
+            }
+        );
+
+    });
+
+}
+
 module.exports = {
 
     todos,
@@ -433,7 +476,7 @@ module.exports = {
     publicaciones,
     publicacion,
     query,
-
+    solicitud,
     productos,
     intercambios
 

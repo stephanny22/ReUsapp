@@ -9,7 +9,7 @@ router.get('/:id', uno);
 router.post('/', agregar);
 
 router.put('/', eliminar)
-
+router.post("/solicitud", solicitud);
 async function todos(req,res){
     try{
     const items = await controlador.todos();
@@ -56,4 +56,19 @@ async function eliminar(req,res){
         
     } 
 };
+
+async function solicitud(req, res) {
+
+    console.log(req.body);
+
+    try {
+        await controlador.solicitud(req.body);
+
+        respuesta.success(req, res, "Solicitud enviada correctamente", 201);
+
+    } catch (error) {
+        console.error(error);
+        respuesta.error(req, res, error.message, 500);
+    }
+}
 module.exports = router;

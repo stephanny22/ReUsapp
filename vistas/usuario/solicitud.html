@@ -14,75 +14,81 @@
 </head>
 
 <body>
-        <div class="container-lg">
+    <div class="container-lg">
 
-    <a class=" volver_btn btn" href="publicacion.html">Volver</a>
-    <div class="form-container">
+        <a class=" volver_btn btn" href="publicacion.html">Volver</a>
+        <div class="form-container">
 
-        <h1>Solicitar producto</h1>
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Cantidad a solicitar</label>
-                <input type="number" min="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <label for="">Producto a ofrecer:</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoProducto" id="check_creado">
-                <label class="form-check-label" for="check_creado">
-                    Producto ya creado
-                </label>
-            </div>
+            <h1>Solicitar producto</h1>
+            <form id="formSolicitud">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Cantidad a solicitar</label>
+                    <input id="cantidad" type="number" min="1" class="form-control">
+                </div>
+                <label for="">Producto a ofrecer:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoProducto" id="check_creado">
+                    <label class="form-check-label" for="check_creado">
+                        Producto ya creado
+                    </label>
+                </div>
 
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoProducto" id="check_nuevo">
-                <label class="form-check-label" for="check_nuevo">
-                    Producto nuevo
-                </label>
-            </div>
-            <div id="opciones_creado" style="display:none;">
-                <label>Seleccione el producto</label>
-                <select class="form-select">
-                    <option>Producto 1</option>
-                    <option>Producto 2</option>
-                </select>
-            </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoProducto" id="check_nuevo">
+                    <label class="form-check-label" for="check_nuevo">
+                        Producto nuevo
+                    </label>
+                </div>
+                <div id="opciones_creado" style="display:none;">
+                    <label>Seleccione el producto</label>
+                    <select id="productoExistente" class="form-select">
+                    </select>
+                </div>
 
-            <div id="opciones_nuevo" style="display:none;">
-                <div class="mb-3">
-                <label>Nombre del producto</label>
-                <input type="text" class="form-control">
+                <div id="opciones_nuevo" style="display:none;">
+
+                    <div class="mb-3">
+                        <label>Nombre del producto</label>
+                        <input id="nombreProducto" type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Ingrese un precio aproximado:</label>
+                        <input id="precioProducto" type="number" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Descripción</label>
+                        <textarea id="descripcionProducto" class="form-control"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Inserte una imagen</label>
+                        <input id="imagenProducto" type="file" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Seleccione la categoría</label>
+                        <select id="subcategoriaProducto" class="form-select">
+                            <option value="1">Celulares</option>
+                            <option value="2">Computadores</option>
+                            <option value="3">Electrodomésticos</option>
+                            <option value="4">Camisas</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Seleccione el estado</label>
+                        <select id="estadoProducto" class="form-select">
+                            <option value="NUEVO">Nuevo</option>
+                            <option value="USADO">Usado</option>
+                        </select>
+                    </div>
+
                 </div>
-                <div class="mb-3">
-                <label for="">Ingrese un precio aproximado:</label>
-                <input type="number" name="" id="">
-                </div>
-                <div class="mb-3">
-                <label>Descripción</label>
-                <textarea class="form-control"></textarea>
-                </div>
-                <div class="mb-3">
-                <label for="">Inserte una imagen</label>
-                <input type="file" name="" id="">
-                </div>
-                <div class="mb-3">
-                <label>Seleccione el estado</label>
-                <select class="form-select">
-                    <option>Nuevo</option>
-                    <option>Usado</option>
-                </select>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <button onclick="window.location.href='';" type="submit" class="btn">Enviar solicitud</button>
-        </form>
-    </div>
+                <button onclick="window.location.href='';" type="submit" class="btn">Enviar solicitud</button>
+            </form>
+        </div>
     </div>
     <script>
         const creado = document.getElementById("check_creado");
@@ -105,4 +111,5 @@
             }
         });
     </script>
+    <script src="js/solicitud.js"></script>
 </body>
