@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const config = require('./config');
+const path = require('path');
 
 const usuarios = require('./modulos/usuarios/rutas');
 const autenticacion = require('./modulos/autenticacion/rutas');
@@ -22,6 +23,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../vistas')));
 
 app.set('port', config.app.port);
 

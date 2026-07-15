@@ -6,6 +6,7 @@ const controlador = require('./index')
 const router = express.Router();
 router.get('/', todos);
 router.get('/:id', uno);
+router.get('/productos', listarProductos);
 router.post('/', agregar);
 
 router.put('/', eliminar)
@@ -56,4 +57,21 @@ async function eliminar(req,res){
         
     } 
 };
+async function listarProductos(req,res){
+
+    try{
+
+        const items=await controlador.productos();
+
+        respuesta.success(req,res,items,200);
+
+    }
+
+    catch(err){
+
+        respuesta.error(req,res,err,500);
+
+    }
+
+}
 module.exports = router;

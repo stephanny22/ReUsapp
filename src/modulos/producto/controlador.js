@@ -1,30 +1,46 @@
 const db = require('../../DB/mysql');
 
-const TABLA = 'producto';
+const TABLA = 'Producto';
 
-module.exports =  function (dbinyectada){
+module.exports = function (dbInyectada) {
 
-    let db = dbinyectada;
-    if(!db){
-        db = require('../../DB/mysql');
-    }
-    function todos(){
-    return db.todos(TABLA)
-    }
-    function uno(id){
-        return db.uno(TABLA, id)
-    }
-    function eliminar(body){
-        return db.eliminar(TABLA, body)
-    }
-    function agregar(body){
-        return db.agregar(TABLA, body)
+    let dbLocal = dbInyectada;
+
+    if (!dbLocal) {
+        dbLocal = db;
     }
 
-    return{
-    todos,
-    uno,
-    agregar,
-    eliminar
+    function todos() {
+        return dbLocal.todos(TABLA);
     }
-}
+
+    function uno(id) {
+        return dbLocal.uno(TABLA, id);
+    }
+
+    function productos() {
+        return dbLocal.productos();
+    }
+
+    function totalProductos() {
+        return dbLocal.totalProductos();
+    }
+
+    function agregar(body) {
+        return dbLocal.agregar(TABLA, body);
+    }
+
+    function eliminar(id) {
+        return dbLocal.eliminar(TABLA, id);
+    }
+
+    return {
+        todos,
+        uno,
+        agregar,
+        eliminar,
+        productos,
+        totalProductos
+    };
+
+};

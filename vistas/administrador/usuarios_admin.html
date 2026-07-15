@@ -149,7 +149,8 @@
             <!-- ESTE ES EL ÚNICO CAMBIO IMPORTANTE -->
             <tbody id="tablaUsuarios">
 
-            </tbody>
+</tbody>
+
 
         </table>
 
@@ -157,41 +158,7 @@
 
 </div>
 
-<script src="../usuarios.js"></script>
-
-    <script>
-
-        function buscarUsuario() {
-
-            var texto = document.getElementById("buscarUsuario").value;
-
-            alert("Buscar usuario: " + texto);
-
-        }
-
-        function editarUsuario(nombre) {
-
-            alert("Editar usuario: " + nombre);
-
-        }
-
-        function eliminarUsuario(nombre) {
-
-            var respuesta = confirm("¿Desea eliminar el usuario " + nombre + "?");
-
-            if (respuesta) {
-                alert("Usuario eliminado");
-            }
-
-        }
-
-        function nuevoUsuario() {
-
-            alert("Abrir formulario para registrar un nuevo usuario");
-
-        }
-
-    </script>
+<script src="../js/usuarios.js"></script>
 
 </body>
 

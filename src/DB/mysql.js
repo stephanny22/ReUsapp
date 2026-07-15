@@ -276,13 +276,12 @@ function totalProductos() {
     });
 
 }
-function usuarios() {
+function usuarios(){
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve,reject)=>{
 
-        const sql = `
+        const sql=`
         SELECT
-
             id,
             tipo_doc,
             num_doc,
@@ -293,13 +292,11 @@ function usuarios() {
             direccion,
             fecha_nacimiento,
             genero
-
         FROM Usuario
-
         ORDER BY nombres;
         `;
 
-        conexion.query(sql, (error, result) => {
+        conexion.query(sql,(error,result)=>{
 
             if(error) return reject(error);
 
@@ -353,21 +350,35 @@ function productos() {
 
         const sql = `
         SELECT
+
             p.id,
             p.nombre,
             p.precio,
             p.estado,
+            p.url_imagen,
+
+            c.nombre AS categoria,
+
             u.nombres,
             u.apellidos
+
         FROM Producto p
+
         INNER JOIN Usuario u
-        ON p.id_propietario=u.id
+            ON p.id_propietario=u.id
+
+        INNER JOIN Subcategoria s
+            ON p.id_subcategoria=s.id
+
+        INNER JOIN Categoria c
+            ON s.id_categoria=c.id
+
         ORDER BY p.id DESC;
         `;
 
-        conexion.query(sql, (error, result) => {
+        conexion.query(sql,(error,result)=>{
 
-            if (error) {
+            if(error){
                 return reject(error);
             }
 
