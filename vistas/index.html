@@ -13,19 +13,20 @@
 <body>
     <div class="form-container">
             <h1>Iniciar sesión</h1>
-        <form>
+        <form id="login">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="correo" placeholder="usuario@reusapp.com">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="clave" placeholder="********">
             </div>
-            <button onclick="window.location.href='';" type="submit" class="btn">Iniciar sesión</button>
+            <button type="submit" class="btn">Iniciar sesión</button>
         </form>
         <p>¿No tienes cuenta? <a href="registro.html">Registrate aquí</a></p>
     </div>
+    <script src="js/index.js"></script>
 
 </body>
 
