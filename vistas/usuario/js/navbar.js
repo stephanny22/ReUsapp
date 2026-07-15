@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+        cerrarSesion();
     cargarCategorias();
 });
 
@@ -19,5 +20,29 @@ async function cargarCategorias() {
 
     } catch (error) {
         console.error(error);
+    }
+}
+
+//Cerrar sesión
+function cerrarSesion(){
+
+    const boton = document.getElementById("cerrarSesion");
+
+    if(boton){
+
+        boton.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+            //Eliminar datos guardados del usuario
+            localStorage.removeItem("token");
+            localStorage.removeItem("usuarioId");
+
+            alert("Sesión cerrada correctamente");
+
+            //Enviar al login
+            window.location.href = "../../index.html";
+        });
+
     }
 }

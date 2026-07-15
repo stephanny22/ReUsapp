@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Guardar el token
             localStorage.setItem("token", datos.body.token);
+            localStorage.setItem("usuarioId", datos.body.usuario.id);
 
             alert("Bienvenido " + datos.body.usuario.nombres);
 
