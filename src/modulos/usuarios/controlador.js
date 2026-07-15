@@ -19,6 +19,34 @@ module.exports = function (dbInyectada) {
         return dbLocal.uno(TABLA, id);
     }
 
+    function usuarios() {
+    return dbLocal.usuarios();
+}
+
+function productos() {
+    return dbLocal.productos();
+}
+
+function intercambios() {
+    return dbLocal.intercambios();
+}
+
+function totalUsuarios() {
+    return dbLocal.totalUsuarios();
+}
+
+function totalProductos() {
+    return dbLocal.totalProductos();
+}
+
+function totalIntercambios() {
+    return dbLocal.totalIntercambios();
+}
+
+function totalResenas() {
+    return dbLocal.totalResenas();
+}
+
     async function agregar(body) {
 
         const usuario = {
@@ -57,10 +85,21 @@ module.exports = function (dbInyectada) {
     }
 
     return {
-        agregar,
-        todos,
-        uno,
-        eliminar
-    };
+
+    agregar,
+    todos,
+    uno,
+    eliminar,
+
+    usuarios,
+    productos,
+    intercambios,
+
+    totalUsuarios,
+    totalProductos,
+    totalIntercambios,
+    totalResenas
+
+};
 
 };
