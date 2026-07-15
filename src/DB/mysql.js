@@ -22,7 +22,7 @@ function conMysql() {
             console.log('[db err]', err);
             setTimeout(conMysql, 200);
         } else {
-            console.log('✅ DB Conectada');
+            console.log('DB Conectada');
         }
 
     });
