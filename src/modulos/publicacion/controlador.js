@@ -20,11 +20,14 @@ module.exports =  function (dbinyectada){
     function agregar(body){
         return db.agregar(TABLA, body)
     }
-
+    function publicaciones(){
+        return db.publicaciones();
+    }
     return{
     todos,
     uno,
     agregar,
-    eliminar
+    eliminar,
+    publicaciones
     }
 }

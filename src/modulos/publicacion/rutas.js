@@ -5,10 +5,21 @@ const controlador = require('./index')
 
 const router = express.Router();
 router.get('/', todos);
+router.get('/publicas', publicaciones);
 router.get('/:id', uno);
 router.post('/', agregar);
+router.put('/', eliminar);
 
-router.put('/', eliminar)
+router.get('/publicas', publicaciones);
+
+async function publicaciones(req,res){
+    try{
+        const items = await controlador.publicaciones();
+        respuesta.success(req,res,items,200);
+    }catch(error){
+        respuesta.error(req,res,error.message,500);
+    }
+}
 
 async function todos(req,res){
     try{

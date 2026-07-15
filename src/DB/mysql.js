@@ -97,9 +97,52 @@ function eliminar (tabla, data){
     });
 }
 
+function publicaciones() {
+    return new Promise((resolve, reject) => {
+        const sql = `
+            SELECT
+                p.id,
+                p.titulo,
+                p.descripcion,
+                p.fecha_publicacion,
+                p.visibilidad,
+
+                pr.nombre AS producto,
+                pr.precio,
+                pr.estado,
+                pr.url_imagen,
+
+                u.nombres,
+                u.apellidos,
+
+                s.nombre AS subcategoria,
+                c.nombre AS categoria
+
+            FROM Publicacion p
+            INNER JOIN Producto pr
+                ON p.id_producto = pr.id
+            INNER JOIN Usuario u
+                ON pr.id_propietario = u.id
+            INNER JOIN Subcategoria s
+                ON pr.id_subcategoria = s.id
+            INNER JOIN Categoria c
+                ON s.id_categoria = c.id
+
+            WHERE p.visibilidad = 'PUBLICO'
+            ORDER BY p.fecha_publicacion DESC;
+        `;
+
+        conexion.query(sql, (error, result) => {
+            if(error) return reject(error);
+            resolve(result);
+        });
+    });
+}
+
 module.exports = {
     todos,
     uno,
     agregar,
-    eliminar
+    eliminar,
+    publicaciones
 }
