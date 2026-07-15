@@ -127,13 +127,13 @@ function eliminar(tabla, data) {
 
 }
 
-function query(tabla, consulta) {
+function query(tabla, campo, valor) {
 
     return new Promise((resolve, reject) => {
 
         conexion.query(
-            `SELECT * FROM ${tabla} WHERE ?`,
-            consulta,
+            `SELECT * FROM ${tabla} WHERE ${campo} = ?`,
+            [valor],
             (error, result) => {
 
                 if (error) {

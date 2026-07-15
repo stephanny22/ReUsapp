@@ -1,6 +1,5 @@
 const db = require('../../DB/mysql');
-const auth = require('../autenticacion');
-
+const bcrypt = require('bcrypt'); 
 const TABLA = 'usuario';
 
 module.exports = function (dbInyectada) {
@@ -14,8 +13,8 @@ module.exports = function (dbInyectada) {
     function todos() {
         return dbLocal.todos(TABLA);
     }
-
     function uno(id) {
+        
         return dbLocal.uno(TABLA, id);
     }
 
@@ -23,43 +22,33 @@ module.exports = function (dbInyectada) {
 
         const usuario = {
             id: body.id,
-            nombre: body.nombre,
-            activo: body.activo
+            tipo_doc: body.tipo_doc,
+            num_doc: body.num_doc,
+            nombres: body.nombres,
+            apellidos: body.apellidos,
+            email: body.email,
+            telefono: body.telefono,
+            direccion: body.direccion,
+            fecha_nacimiento: body.fecha_nacimiento,
+            genero: body.genero,
+            contrasenia: body.contrasenia,
+            // Si no llega, se registra como Cliente
+            id_tipo_usuario: body.id_tipo_usuario || 2
         };
-
-        const respuesta = await dbLocal.agregar(TABLA, usuario);
-
-        console.log('respuesta', respuesta);
-
-        let insertId = 0;
-
-        if (body.id == 0) {
-            insertId = respuesta.insertId;
-        } else {
-            insertId = body.id;
-        }
-
-        let respuesta2 = '';
-
-        if (body.usuario || body.password) {
-            respuesta2 = await auth.agregar({
-                id: insertId,
-                usuario: body.usuario,
-                password: body.password
-            });
-        }
-
-        return respuesta2;
+        usuario.contrasenia = await bcrypt.hash(body.contrasenia, 10);
+console.log("dbLocal =", dbLocal);
+console.log("Método agregar =", dbLocal?.agregar);
+        return dbLocal.agregar(TABLA, usuario);
     }
 
-    function eliminar(id) {
-        return dbLocal.eliminar(TABLA, id);
+    function eliminar(body) {
+        return dbLocal.eliminar(TABLA, body);
     }
 
     return {
-        agregar,
         todos,
         uno,
+        agregar,
         eliminar
     };
 

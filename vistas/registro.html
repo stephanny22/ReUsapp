@@ -6,65 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Iniciar sesión</title>
 </head>
 
 <body>
     <div class="form-container">
-            <h1>Registrarse</h1>
-        <form>
-            <label for="exampleInputEmail1" class="form-label">Tipo de documento:</label>
-            <select class="form-select" name="tipo_doc" id="tipo_doc">
-                <option value="CE">Cedula de extranjeria</option>
-                <option value="CC">Cedula de ciudadania</option>
+        <h1>Registrarse</h1>
+        <form id="registro">
+            <label class="form-label">Tipo de documento</label>
+            <select class="form-select" id="tipo_doc">
+                <option value="CC">Cédula de ciudadanía</option>
+                <option value="CE">Cédula de extranjería</option>
+                <option value="TI">Tarjeta de identidad</option>
+                <option value="PASAPORTE">Pasaporte</option>
+                <option value="PEP">PEP</option>
+                <option value="PPT">PPT</option>
             </select>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Numero de documento:</label>
-                <input type="number" class="form-control" id="" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombres</label>
-                <input type="text" class="form-control" id="" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">telefono</label>
-                <input type="number" class="form-control" id="" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Fecha_nacimiento</label>
-                <input type="date" class="form-control" id="" aria-describedby="emailHelp">
-            </div>
-            <label for="exampleInputEmail1" class="form-label">Genero:</label>
-            <select class="form-select" name="genero" id="tipo_doc">
-                <option value="fem">Femenino</option>
-                <option value="mas">Masculino</option>
-                <option value="nb">No binario</option>
-                <option value="NA">Prefiero no decir</option>
-            </select>
-            
 
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label class="form-label">Número de documento</label>
+                <input type="number" class="form-control" id="num_doc">
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nombres</label>
+                <input type="text" class="form-control" id="nombres">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Fecha de nacimiento</label>
+                <input type="date" class="form-control" id="fecha_nacimiento">
+            </div>
+
+            <label class="form-label">Género</label>
+            <select class="form-select" id="genero">
+                <option value="FEMENINO">Femenino</option>
+                <option value="MASCULINO">Masculino</option>
+                <option value="NOBINARIO">No binario</option>
+                <option value="NA">Prefiero no decir</option>
+            </select>
+
+            <div class="mb-3 mt-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+
             <button type="submit" class="btn">Registrarse</button>
+
         </form>
         <p>¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a></p>
     </div>
-
+<script src="js/registro.js"></script>
 </body>
 
 </html>

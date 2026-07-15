@@ -1,4 +1,4 @@
-const TABLA = 'auth';
+const TABLA = 'usuario';
 const bcrypt = require('bcrypt');
 const auth = require('../../autenticacion');
 
@@ -10,17 +10,35 @@ module.exports = function (dbInyectada) {
         db = require('../../DB/mysql');
     }
 
-    async function login(usuario, password) {
+    async function login(email, password) {
+            console.log("Email recibido:", email);
 
-        const data = await db.query(TABLA, { usuario: usuario });
 
-        return bcrypt.compare(password, data.password)
+        const data = await db.query(TABLA, 'email', email);
+        
+            console.log("Resultado consulta:", data);
+
+
+        if (!data) {
+            throw new Error('Usuario no encontrado');
+        }
+
+        return bcrypt.compare(password, data.contrasenia)
             .then((resultado) => {
 
-                if (resultado === true) {
-                    return auth.asignarToken({ ...data });
-                    return data;
-                
+                if (resultado) {
+
+                    const token = auth.asignarToken({
+                        id: data.id,
+                        email: data.email,
+                        tipo: data.id_tipo_usuario
+                    });
+
+                    return {
+                        token,
+                        usuario: data
+                    };
+
                 } else {
                     throw new Error('Usuario o contraseña incorrectos');
                 }
@@ -29,30 +47,8 @@ module.exports = function (dbInyectada) {
 
     }
 
-    async function agregar(data) {
-
-        const authData = {
-            id: data.id,
-        };
-
-        if (data.usuario) {
-            authData.usuario = data.usuario;
-        }
-
-        if (data.password) {
-            authData.password = await bcrypt.hash(
-                data.password.toString(),
-                10
-            );
-        }
-
-        return db.agregar(TABLA, authData);
-
-    }
-
     return {
-        agregar,
-        login,
+        login
     };
 
 };

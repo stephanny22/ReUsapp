@@ -4,7 +4,7 @@ const config = require('./config');
 
 const usuarios = require('./modulos/usuarios/rutas')
 const categoria = require('./modulos/categoria/rutas');
-const chat = require('./modulos/usuarios/rutas');
+const chat = require('./modulos/chat/rutas');
 const imagen = require('./modulos/imagen/rutas');
 const intercambio = require('./modulos/intercambio/rutas');
 const mensaje = require('./modulos/mensaje/rutas');
