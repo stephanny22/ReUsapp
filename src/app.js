@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const config = require('./config');
 
-const usuarios = require('./modulos/usuarios/rutas');
+const usuarios = require('./modulos/usuarios/rutas')
 const categoria = require('./modulos/categoria/rutas');
 const chat = require('./modulos/usuarios/rutas');
 const imagen = require('./modulos/imagen/rutas');
@@ -14,6 +14,7 @@ const publicacion = require('./modulos/publicacion/rutas');
 const resenia = require('./modulos/resenia/rutas');
 const subcategoria = require('./modulos/subcategoria/rutas');
 const tipo_usuario = require('./modulos/tipo_usuario/rutas');
+const autenticacion = require('./modulos/autenticacion/rutas');
 const path = require('path');
 
 const app = express ();
@@ -26,6 +27,7 @@ app.set('port', config.app.port)
 
 //rutas
 app.use('/api/usuarios', usuarios);
+app.use('/api/auth', autenticacion);
 app.use('/api/categoria', categoria);
 app.use('/api/chat', chat);
 app.use('/api/imagen', imagen);
